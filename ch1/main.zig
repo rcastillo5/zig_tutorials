@@ -24,4 +24,5 @@ pub fn main() void {
 
     const length = d.len;
     std.debug.print("word length is {}\n", .{length});
+    // still need to find append function to array
 }
