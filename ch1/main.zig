@@ -1,4 +1,5 @@
 const std = @import("std");
+const expect = std.testing.expect;
 
 pub fn main() void {
     // variables
@@ -25,4 +26,26 @@ pub fn main() void {
     const length = d.len;
     std.debug.print("word length is {}\n", .{length});
     // still need to find append function to array
+
+    var x: u16 = 0;
+    if (false) {
+        x += 1;
+        std.debug.print("value of x is {}\n", .{x});
+    } else {
+        x += 4;
+        std.debug.print("value of x is {}\n", .{x});
+    }
+
+    // try expect(x == 1);
+}
+test "if statement" {
+    const a = true;
+    var x: u16 = 0;
+    if (a) {
+        x += 1;
+    } else {
+        x += 4;
+    }
+
+    try expect(x == 1);
 }
