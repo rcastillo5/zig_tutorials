@@ -1,7 +1,45 @@
 const std = @import("std");
 const expect = std.testing.expect;
+const print = std.debug.print;
 
 pub fn main() void {
+    // constVarsAndArrays();
+    // ifElse();
+
+    // whileNoContinue();
+    // whileWithContinueExpression();
+    whileWithContinue();
+}
+
+pub fn whileWithContinue() void {
+    var sum: u8 = 0;
+    var i: u8 = 1;
+    while (i <= 10) : (i += 1) {
+        if (i % 2 == 0) continue;
+        if (sum == 16) break;
+        sum += i;
+        print("value of sum is {}\n", .{sum});
+    }
+}
+
+pub fn ifElse() void {
+    var x: u16 = 0;
+    if (false) {
+        x += 1;
+        print("value of x is {}\n", .{x});
+    } else {
+        x += 4;
+        print("value of x is {}\n", .{x});
+    }
+
+    var y: i16 = 0;
+    y += if (false) 24 else -5;
+    print("value of y is {}\n", .{y});
+
+    // try expect(x == 1);
+}
+
+pub fn constVarsAndArrays() void {
     // variables
     const constant: i32 = 5;
     _ = constant;
@@ -24,23 +62,27 @@ pub fn main() void {
     const d = [_]u8{ 'w', 'o', 'r', 'd' };
 
     const length = d.len;
-    std.debug.print("word length is {}\n", .{length});
+    print("word length is {}\n", .{length});
     // still need to find append function to array
+}
 
-    var x: u16 = 0;
-    if (false) {
-        x += 1;
-        std.debug.print("value of x is {}\n", .{x});
-    } else {
-        x += 4;
-        std.debug.print("value of x is {}\n", .{x});
+pub fn whileNoContinue() void {
+    var i: u8 = 4;
+    while (i < 80) {
+        i *= 3;
     }
+    print("value of i is {}\n", .{i});
+}
 
-    var y: i16 = 0;
-    y += if (false) 24 else -5;
-    std.debug.print("value of y is {}\n", .{y});
-
-    // try expect(x == 1);
+// while with continue expression is very similar to for loop in JS
+pub fn whileWithContinueExpression() void {
+    var sum: u8 = 0;
+    var i: u8 = 1;
+    while (i <= 10) : (i += 1) {
+        sum += i;
+        print("value of sum is {}\n", .{sum});
+        print("value of i is {}\n", .{i});
+    }
 }
 test "if statement" {
     const a = true;
