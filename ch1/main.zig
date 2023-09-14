@@ -8,7 +8,34 @@ pub fn main() void {
 
     // whileNoContinue();
     // whileWithContinueExpression();
-    whileWithContinue();
+    // whileWithContinue();
+    forLoop();
+}
+
+pub fn forLoop() void {
+    const str = [_]u8{ 'a', 'b', 'c' };
+
+    for (str) |chr, i| {
+        print("character is: {} and index is: {}\n", .{ chr, i });
+    }
+    for (str) |_, i| {
+        print("index is: {}\n", .{i});
+    }
+    for (str) |chr| {
+        print("character is: {}\n", .{chr});
+    }
+
+    // GO style where the underscore omits is not explicit.
+    // might be more Ruby like.
+    // Additionally, its item first, then index
+    // for (str) |chr, _| {
+    //     print("character is: {}\n", .{chr});
+    // }
+
+    // interesting that the for (str, 0..) notation does not work
+    // for (str, 0..) |chr, i| {
+    //     print("character is: {} and index is: {}\n", .{ chr, i });
+    // }
 }
 
 pub fn whileWithContinue() void {
