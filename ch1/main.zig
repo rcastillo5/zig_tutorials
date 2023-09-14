@@ -36,6 +36,10 @@ pub fn main() void {
         std.debug.print("value of x is {}\n", .{x});
     }
 
+    var y: i16 = 0;
+    y += if (false) 24 else -5;
+    std.debug.print("value of y is {}\n", .{y});
+
     // try expect(x == 1);
 }
 test "if statement" {
@@ -47,5 +51,11 @@ test "if statement" {
         x += 4;
     }
 
+    try expect(x == 1);
+}
+
+test "if statement terniary operation" {
+    var x: u16 = 0;
+    x += if (true) 21 else 5;
     try expect(x == 1);
 }
