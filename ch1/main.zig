@@ -12,10 +12,30 @@ pub fn main() void {
     // forLoop();
     // var x: u32 = addFive(10);
     // print("value of x is {}\n", .{x});
-    var f: u16 = 0;
-    f = fibonacci(5);
-    print("Fibonacci of {} is {}\n", .{ 5, f });
-    print("Fibonacci of {} is {}\n", .{ 5, fibonacci(5) });
+    // var f: u16 = 0;
+    // f = fibonacci(5);
+    // print("Fibonacci of {} is {}\n", .{ 5, f });
+    // print("Fibonacci of {} is {}\n", .{ 5, fibonacci(5) });
+    fib(10);
+}
+
+fn fib(n: u16) void {
+    var i: u16 = 3;
+    var t1: u16 = 0;
+    var t2: u16 = 1;
+    var nextTerm = t1 + t2;
+
+    print("The number of terms: {}\n", .{n});
+    print("Fibonacci Series: {}, {}", .{ t1, t2 });
+
+    // while (i <= n) : (i++) {}  <--- Does not work with i++
+    while (i <= n) : (i += 1) {
+        print(" , {}", .{nextTerm});
+        t1 = t2;
+        t2 = nextTerm;
+        nextTerm = t1 + t2;
+    }
+    print("\n", .{});
 }
 
 // recursion is not working
