@@ -9,7 +9,13 @@ pub fn main() void {
     // whileNoContinue();
     // whileWithContinueExpression();
     // whileWithContinue();
-    forLoop();
+    // forLoop();
+    var x: u32 = addFive(10);
+    print("value of x is {}\n", .{x});
+}
+
+fn addFive(x: u32) u32 {
+    return x + 5;
 }
 
 pub fn forLoop() void {
