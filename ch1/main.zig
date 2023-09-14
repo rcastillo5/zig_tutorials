@@ -18,18 +18,19 @@ pub fn main() void {
     // print("Fibonacci of {} is {}\n", .{ 5, fibonacci(5) });
     // fib(10);
     const n: u16 = 10;
-    const f: u16 = fibo(n);
-    print("Value of fibo({}) is {}\n", .{ n, f });
+    // const f: u16 = fibo(n);
+    print("Value of fibo({}) is {}\n", .{ n, fibo(n) });
 }
 
 fn fibo(n: u16) u16 {
-    if (n == 0) {
-        return 0;
-    } else if (n == 1) {
-        return 1;
-    } else {
-        return fibo(n - 1) + fibo(n - 2);
-    }
+    // if (n == 0) {
+    //     return 0;
+    // } else if (n == 1) {
+    //     return 1;
+    // } else {
+    //     return fibo(n - 1) + fibo(n - 2);
+    // }
+    if (n <= 1) return 1 else return fibo(n - 1) + fibo(n - 2);
 }
 
 fn fib(n: u16) void {
