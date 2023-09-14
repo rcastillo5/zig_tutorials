@@ -10,10 +10,20 @@ pub fn main() void {
     // whileWithContinueExpression();
     // whileWithContinue();
     // forLoop();
-    var x: u32 = addFive(10);
-    print("value of x is {}\n", .{x});
+    // var x: u32 = addFive(10);
+    // print("value of x is {}\n", .{x});
+    var f: u16 = 0;
+    f = fibonacci(5);
+    print("Fibonacci of {} is {}\n", .{ 5, f });
+    print("Fibonacci of {} is {}\n", .{ 5, fibonacci(5) });
 }
 
+// recursion is not working
+fn fibonacci(n: u16) u16 {
+    // if (n <= 1) return n;
+    if (n == 0 or n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
 fn addFive(x: u32) u32 {
     return x + 5;
 }
